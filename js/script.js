@@ -3,10 +3,58 @@
 const menuBlocks = document.querySelectorAll('.menu-block__single-container'),
   mainInfoBlock = document.querySelector('#main-info');
 
-menuBlocks.forEach(block => {
-  block.addEventListener('click', () => {
-    mainInfoBlock.classList.toggle('show-info');
+//Rotate menu blocks on hover, open info on click
+menuBlocks.forEach(menuBlock => {
+  const height = menuBlock.clientHeight;
+  const width = menuBlock.clientWidth;
+  let blinkLineInterval;
+
+  const handleMove = (e) => {
+    const xVal = e.layerX;
+    const yVal = e.layerY;
+
+    const yRotation = 20 * ((xVal - width / 2) / width);
+    const xRotation = -20 * ((yVal - height / 2) / height);
+
+    const string = 'perspective(800px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)';
+
+    menuBlock.style.transform = string;
+  };
+
+  const blinkLine = () => {
+    const line = menuBlock.querySelector('.menu-block__title-line');
+    line.style.opacity = 1;
+    setTimeout(() => line.style.opacity = 0, 500);
+  };
+
+  menuBlock.addEventListener('click', () => {
+    mainInfoBlock.classList.add('show-info');
   });
+
+  menuBlock.addEventListener('mousemove', handleMove);
+
+  menuBlock.addEventListener('mouseover', () => {
+    blinkLine();
+    blinkLineInterval = setInterval(blinkLine, 1000);
+  });
+
+  menuBlock.addEventListener('mouseout', () => {
+    menuBlock.style.transform = 'perspective(800px) scale(1) rotateX(0) rotateY(0)';
+    clearInterval(blinkLineInterval);
+  });
+
+  menuBlock.addEventListener('mousedown', () => {
+    menuBlock.style.transform = 'perspective(800px) scale(0.9) rotateX(0) rotateY(0)';
+  });
+
+
+  menuBlock.addEventListener('mouseup', () => {
+    menuBlock.style.transform = 'perspective(800px) scale(1.1) rotateX(0) rotateY(0)';
+  });
+});
+
+document.querySelector('#main-info-close-btn').addEventListener('click', () => {
+  mainInfoBlock.classList.remove('show-info');
 });
 
 particlesJS("particles-js", {
@@ -118,51 +166,4 @@ particlesJS("particles-js", {
     }
   },
   "retina_detect": true
-});
-
-
-//Rotate menu blocks on hover
-menuBlocks.forEach(menuBlock => {
-  const height = menuBlock.clientHeight;
-  const width = menuBlock.clientWidth;
-  let blinkLineInterval;
-
-  const handleMove = (e) => {
-    const xVal = e.layerX;
-    const yVal = e.layerY;
-
-    const yRotation = 20 * ((xVal - width / 2) / width);
-    const xRotation = -20 * ((yVal - height / 2) / height);
-
-    const string = 'perspective(800px) scale(1.1) rotateX(' + xRotation + 'deg) rotateY(' + yRotation + 'deg)';
-
-    menuBlock.style.transform = string;
-  };
-
-  const blinkLine = () => {
-    const line = menuBlock.querySelector('.menu-block__title-line');
-    line.style.opacity = 1;
-    setTimeout(() => line.style.opacity = 0, 500);
-  };
-
-  menuBlock.addEventListener('mousemove', handleMove);
-
-  menuBlock.addEventListener('mouseover', () => {
-    blinkLine();
-    blinkLineInterval = setInterval(blinkLine, 1000);
-  });
-
-  menuBlock.addEventListener('mouseout', () => {
-    menuBlock.style.transform = 'perspective(800px) scale(1) rotateX(0) rotateY(0)';
-    clearInterval(blinkLineInterval);
-  });
-
-  menuBlock.addEventListener('mousedown', () => {
-    menuBlock.style.transform = 'perspective(800px) scale(0.9) rotateX(0) rotateY(0)';
-  });
-
-
-  menuBlock.addEventListener('mouseup', () => {
-    menuBlock.style.transform = 'perspective(800px) scale(1.1) rotateX(0) rotateY(0)';
-  });
 });

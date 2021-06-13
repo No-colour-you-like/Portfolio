@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Calibre-reg', sans-serif;
   font-weight: 300;
   width: 100%;
   margin: 0 auto;
@@ -11,12 +11,12 @@ body {
 }
 
 input, button, textarea {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Calibre-reg', sans-serif;
   outline: none;
 }
 
 button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Calibre-reg', sans-serif;
   cursor: pointer;
 }
 
@@ -53,6 +53,20 @@ img {
   font-family: 'Calibre-medium';
   src: local("../fonts/Calibre Medium"), local("../fonts/Calibre-Medium"), url("../fonts/Calibre-Medium.woff2") format("woff2"), url("../fonts/Calibre-Medium.woff") format("woff"), url("../fonts/Calibre-Medium.ttf") format("truetype");
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre-reg';
+  src: local("../fonts/Calibre Regular"), local("../fonts/Calibre-Regular"), url("../fonts/Calibre-Regular.woff2") format("woff2"), url("../fonts/Calibre-Regular.woff") format("woff"), url("../fonts/Calibre-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre-light';
+  src: local("../fonts/Calibre Light"), local("../fonts/Calibre-Light"), url("../fonts/Calibre-Light.woff2") format("woff2"), url("../fonts/Calibre-Light.woff") format("woff"), url("../fonts/Calibre-Light.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -93,7 +107,8 @@ img {
 
 .main__titles {
   transform: rotate(30deg);
-  margin-left: 50px;
+  margin-left: 30px;
+  margin-top: 50px;
 }
 
 .main__info {
@@ -102,9 +117,20 @@ img {
   height: 100vh;
   right: 0;
   top: 0;
+  padding: 50px;
   transform: translateX(110%);
-  background-color: #fff;
-  transition: 0.5s;
+  background-color: #1b203f;
+  transition: 0.3s;
+}
+
+.main__info-close {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 50px;
+  top: 50px;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .name-block {
@@ -270,6 +296,142 @@ img {
 
 .menu-block__photo:hover {
   box-shadow: none;
+}
+
+.about-me {
+  display: none;
+}
+
+.about-me__title {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.about-me__title:after {
+  position: absolute;
+  content: '';
+  width: 200px;
+  height: 1px;
+  top: 40%;
+  left: 190px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.about-me__title span {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 23px;
+}
+
+.about-me__text {
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-family: 'Calibre-light', sans-serif;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.about-me__text:nth-of-type(3) {
+  margin-bottom: 50px;
+}
+
+.about-me__tech {
+  display: flex;
+}
+
+.about-me__tech-text {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.about-me__tech-col {
+  padding: 5px 15px;
+}
+
+.about-me__tech-col:first-child {
+  margin-right: 50px;
+}
+
+.about-me__tech-single {
+  font-family: 'Calibre-light', sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.about-me__tech-single:before {
+  content: ' - ';
+}
+
+.project {
+  position: relative;
+}
+
+.project__image {
+  width: 450px;
+  box-shadow: 0 0 20px #0f1125;
+}
+
+.project__image-img {
+  display: block;
+}
+
+.project__info {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.project__info-title {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.project__info-text {
+  display: block;
+  width: 350px;
+  height: 120px;
+  padding: 20px;
+  background-color: rgba(19, 22, 37, 0.9);
+  font-size: 18px;
+  text-align: left;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px #131625;
+}
+
+.project__info-tech {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.project__info-tech p {
+  margin: 0 10px;
+}
+
+.project__info-tech p:last-child {
+  margin-right: 0;
+}
+
+.project__info-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.project__info-link {
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+}
+
+.project__info-link:last-child {
+  margin-right: 0;
 }
 
 #particles-js {
