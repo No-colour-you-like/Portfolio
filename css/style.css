@@ -118,7 +118,8 @@ img {
   right: 0;
   top: 0;
   padding: 50px;
-  transform: translateX(110%);
+  padding-right: 30px;
+  transform: translateX(0);
   background-color: #1b203f;
   transition: 0.3s;
 }
@@ -363,17 +364,81 @@ img {
   content: ' - ';
 }
 
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.portfolio__type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.portfolio__type-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  padding: 7px 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  background-color: #5B649F;
+  border-radius: 30px;
+  box-shadow: 0 0 10px #5B649F;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.portfolio__type-name:hover {
+  box-shadow: 0 0 15px #5B649F;
+}
+
+.projects {
+  overflow-y: scroll;
+  padding-right: 20px;
+}
+
+.projects::-webkit-scrollbar {
+  width: 5px;
+}
+
+.projects::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
 .project {
   position: relative;
+  padding: 30px 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: none;
+  border-left: none;
+}
+
+.project:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+
+.project:last-of-type {
+  adding-bottom: 0;
+  border-bottom: none;
 }
 
 .project__image {
   width: 450px;
+  height: 254px;
   box-shadow: 0 0 20px #0f1125;
 }
 
 .project__image-img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project__info {
@@ -394,12 +459,12 @@ img {
   width: 350px;
   height: 120px;
   padding: 20px;
-  background-color: rgba(19, 22, 37, 0.9);
+  background-color: rgba(9, 13, 41, 0.9);
   font-size: 18px;
   text-align: left;
   word-wrap: break-word;
   margin-bottom: 15px;
-  box-shadow: 0 0 20px #131625;
+  box-shadow: 0 0 20px #090D29;
 }
 
 .project__info-tech {
@@ -410,7 +475,7 @@ img {
 }
 
 .project__info-tech p {
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .project__info-tech p:last-child {
@@ -432,6 +497,21 @@ img {
 
 .project__info-link:last-child {
   margin-right: 0;
+}
+
+.project__reversed {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project__reversed .project__info {
+  right: auto;
+  left: 0;
+  text-align: left;
+}
+
+.project__reversed .project__info-tech, .project__reversed .project__info-links {
+  justify-content: flex-start;
 }
 
 #particles-js {
