@@ -1,2 +1,19 @@
 .show-info 
   transform: translateX(0)
+
+.show-info-block 
+  display: flex
+  animation: showInfo
+  animation-duration: 1s
+
+.show-project-block
+  display: block
+  animation: showInfo
+  animation-duration: 1s
+
+@keyframes showInfo
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+

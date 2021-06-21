@@ -1,7 +1,13 @@
 'use strict';
 
 const menuBlocks = document.querySelectorAll('.menu-block__single-container'),
-  mainInfoBlock = document.querySelector('#main-info');
+  mainInfoBlock = document.querySelector('#main-info'),
+  aboutBtn = document.querySelector('#about-btn'),
+  portfolioBtn = document.querySelector('#portfolio-btn'),
+  sitesBtn = document.querySelector('#sites-btn'),
+  contactsBtn = document.querySelector('#contacts-btn'),
+  jsBtn = document.querySelector('#js-apps-btn'),
+  reactBtn = document.querySelector('#react-apps-btn');
 
 //Rotate menu blocks on hover, open info on click
 menuBlocks.forEach(menuBlock => {
@@ -166,4 +172,53 @@ particlesJS("particles-js", {
     }
   },
   "retina_detect": true
+});
+
+
+const hideAllInfo = (block) => {
+  const infoBlocks = document.querySelectorAll('.info-block');
+
+  infoBlocks.forEach(block => {
+    block.classList.remove('show-info-block');
+  });
+
+  block.classList.add('show-info-block');
+};
+
+
+const hideProjects = (block) => {
+  const projectsBlock = document.querySelectorAll('.projects');
+
+  projectsBlock.forEach(block => {
+    block.classList.remove('show-project-block');
+  });
+
+  block.classList.add('show-project-block');
+};
+
+
+aboutBtn.addEventListener('click', () => {
+  const aboutInfo = document.querySelector('#about-info');
+  hideAllInfo(aboutInfo);
+});
+
+portfolioBtn.addEventListener('click', () => {
+  const portfolioInfo = document.querySelector('#portfolio-info');
+  hideAllInfo(portfolioInfo);
+});
+
+contactsBtn.addEventListener('click', () => {
+  const contactsInfo = document.querySelector('#contacts-info');
+  hideAllInfo(contactsInfo);
+});
+
+
+sitesBtn.addEventListener('click', () => {
+  const projectsSites = document.querySelector('#projects-sites');
+  hideProjects(projectsSites);
+});
+
+jsBtn.addEventListener('click', () => {
+  const projectsJs = document.querySelector('#projects-js-apps');
+  hideProjects(projectsJs);
 });
