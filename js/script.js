@@ -4,6 +4,7 @@ const menuBlocks = document.querySelectorAll('.menu-block__single-container'),
   mainInfoBlock = document.querySelector('#main-info'),
   aboutBtn = document.querySelector('#about-btn'),
   portfolioBtn = document.querySelector('#portfolio-btn'),
+  resumeBtn = document.querySelector('#resume-btn'),
   sitesBtn = document.querySelector('#sites-btn'),
   contactsBtn = document.querySelector('#contacts-btn'),
   jsBtn = document.querySelector('#js-apps-btn'),
@@ -205,6 +206,11 @@ aboutBtn.addEventListener('click', () => {
 portfolioBtn.addEventListener('click', () => {
   const portfolioInfo = document.querySelector('#portfolio-info');
   hideAllInfo(portfolioInfo);
+});
+
+resumeBtn.addEventListener('click', () => {
+  const resumeInfo = document.querySelector('#resume-info');
+  hideAllInfo(resumeInfo);
 });
 
 contactsBtn.addEventListener('click', () => {
