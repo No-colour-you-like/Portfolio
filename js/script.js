@@ -228,3 +228,8 @@ jsBtn.addEventListener('click', () => {
   const projectsJs = document.querySelector('#projects-js-apps');
   hideProjects(projectsJs);
 });
+
+reactBtn.addEventListener('click', () => {
+  const projectsReact = document.querySelector('#projects-react-apps');
+  hideProjects(projectsReact);
+});
